@@ -1,0 +1,10 @@
+Lege hier deine Bilder ab, z.B.:
+
+- logo.png            → Server-Logo (für die Navbar)
+- hero-bg.jpg          → optionales Hintergrundbild im Hero-Bereich
+- screenshot-1.jpg ... → Server-Screenshots für eine Galerie
+
+Aktuell verwendet die Seite nur CSS-Grafiken/Animationen (Glow-Orb, Partikel),
+es sind noch keine <img>-Tags eingebunden. Sobald du mir sagst, welche Bilder
+du hast und wo sie erscheinen sollen (Logo, Hero, Galerie, etc.), baue ich sie
+direkt ins HTML/CSS ein.

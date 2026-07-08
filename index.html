@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AuraSMP - Minecraft Java Server</title>
+<meta name="description" content="AuraSMP ist ein Minecraft Java SMP ab Version 1.21.8 mit Economy, Shops, Auction House und Survival-Grind.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Sora:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="icon" href="assets/media/aura-logo.png">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark">◆</span>
+      <span class="brand-name">Aura<span class="brand-accent">SMP</span></span>
+      <img class="brand-logo" src="assets/media/aura-logo.png" alt="AuraSMP Logo">
+    </a>
+
+    <nav class="nav-links">
+      <a href="#features">Infos</a>
+      <a href="#commands">Befehle</a>
+      <a href="#shops">Shops</a>
+      <a href="#join">Beitreten</a>
+      <a href="#community">Community</a>
+    </nav>
+
+    <a class="status-chip" href="#join">
+      <img src="assets/media/aura-logo.png" alt="" aria-hidden="true">
+      <span class="ip-dot" id="navIpDot"></span>
+      <span><strong id="navStatusCount">-</strong> online</span>
+    </a>
+
+    <button class="burger" id="burger" aria-label="Menü öffnen">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#features">Infos</a>
+    <a href="#commands">Befehle</a>
+    <a href="#shops">Shops</a>
+    <a href="#join">Beitreten</a>
+    <a href="#community">Community</a>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="hero-bg">
+    <div class="aura-core" id="auraCore">
+      <div class="core-glow"></div>
+      <img class="hero-logo-orb" src="assets/media/aura-logo.png" alt="AuraSMP Logo">
+    </div>
+    <canvas id="particles"></canvas>
+    <div class="hero-vignette"></div>
+  </div>
+
+  <div class="hero-content">
+    <p class="eyebrow reveal">// SEASON 1 - JETZT LIVE</p>
+    <h1 class="hero-title reveal">
+      <span class="pixel-line">WILLKOMMEN AUF</span>
+      <span class="hero-line-big">AURA<span class="hero-accent">SMP</span></span>
+    </h1>
+    <p class="hero-sub reveal">
+      Survival, Economy, Kits, Auction House und Shops auf einem Minecraft Java SMP.
+      Spiele mit Version 1.21.8 oder neuer und starte direkt deinen Grind.
+    </p>
+
+    <div class="hero-actions reveal">
+      <button class="btn btn-primary" id="heroIpBtn" type="button">
+        <span>Server-IP kopieren</span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <a href="https://www.tiktok.com/@aurasmp.de" target="_blank" rel="noopener" class="btn btn-ghost">Clips auf TikTok ansehen</a>
+    </div>
+
+    <div class="hero-meta reveal">
+      <div class="meta-item">
+        <span class="meta-num">1.21.8+</span>
+        <span class="meta-label">Java Version</span>
+      </div>
+      <div class="meta-sep"></div>
+      <div class="meta-item">
+        <span class="meta-num" id="onlineCount">-</span>
+        <span class="meta-label" id="onlineLabel">
+          <span class="status-dot" id="statusDot"></span>
+          Spieler online
+        </span>
+      </div>
+      <div class="meta-sep"></div>
+      <div class="meta-item">
+        <span class="meta-num">24/7</span>
+        <span class="meta-label">Server</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>/HOME</span><span>◆</span>
+    <span>/SELL</span><span>◆</span>
+    <span>/AH</span><span>◆</span>
+    <span>/SHOP</span><span>◆</span>
+    <span>/SPAWN</span><span>◆</span>
+    <span>KITSHOP</span><span>◆</span>
+    <span>ECONOMY</span><span>◆</span>
+    <span>PVP</span><span>◆</span>
+    <span>/HOME</span><span>◆</span>
+    <span>/SELL</span><span>◆</span>
+    <span>/AH</span><span>◆</span>
+    <span>/SHOP</span><span>◆</span>
+    <span>/SPAWN</span><span>◆</span>
+    <span>KITSHOP</span><span>◆</span>
+    <span>ECONOMY</span><span>◆</span>
+    <span>PVP</span><span>◆</span>
+  </div>
+</div>
+
+<section class="section" id="features">
+  <div class="section-head reveal">
+    <p class="eyebrow">// SERVER-INFOS</p>
+    <h2 class="section-title">Alles Wichtige auf einen Blick.</h2>
+  </div>
+
+  <div class="feature-grid">
+    <article class="feature-card feature-card--wide reveal">
+      <div class="feature-icon">⛏</div>
+      <h3>Survival mit Economy</h3>
+      <p>Farmen, bauen, handeln und Geld verdienen. Du kannst Items verkaufen, im Auction House handeln und dir bessere Kits oder Ausrüstung erspielen.</p>
+    </article>
+
+    <article class="feature-card reveal">
+      <div class="feature-icon">$</div>
+      <h3>Geld verdienen</h3>
+      <p>Nutze <strong>/sell</strong>, verkaufe Items im Shop oder biete Sachen im Auction House an.</p>
+    </article>
+
+    <article class="feature-card reveal">
+      <div class="feature-icon">⌂</div>
+      <h3>Homes & Spawn</h3>
+      <p>Setze dir Homepunkte und komme mit <strong>/spawn</strong> jederzeit zurück zum Server-Start.</p>
+    </article>
+
+    <article class="feature-card reveal">
+      <div class="feature-icon">⚔</div>
+      <h3>PvP & Grind</h3>
+      <p>Rüste dich aus, sammle starke Items und kämpfe fair gegen andere Spieler.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section media-section" id="media">
+  <div class="section-head reveal">
+    <p class="eyebrow">// BILDER & VIDEOS</p>
+    <h2 class="section-title">So sieht AuraSMP aus.</h2>
+  </div>
+
+  <div class="media-grid">
+    <article class="media-card media-card--video reveal">
+      <video src="assets/media/server-video-1.mp4" controls muted playsinline preload="metadata"></video>
+      <h3>Spawn Einblick</h3>
+      <p>Ein kurzer Blick auf den Spawn und den Bereich, an dem neue Spieler starten.</p>
+    </article>
+    <article class="media-card media-card--video reveal">
+      <video src="assets/media/server-video-2.mp4" controls muted playsinline preload="metadata"></video>
+      <h3>Overworld, Nether & End</h3>
+      <p>Hier siehst du die wichtigsten Welten und wie sich der Server beim Erkunden anfühlt.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section" id="commands">
+  <div class="section-head reveal">
+    <p class="eyebrow">// WICHTIGE BEFEHLE</p>
+    <h2 class="section-title">Diese Commands brauchst du.</h2>
+  </div>
+
+  <div class="command-grid">
+    <article class="command-card reveal"><code>/home</code><p>Teleportiert dich zu deinem gespeicherten Zuhause.</p></article>
+    <article class="command-card reveal"><code>/sell</code><p>Verkauft Items und bringt dir Geld für den nächsten Einkauf.</p></article>
+    <article class="command-card reveal"><code>/ah</code><p>Öffnet das Auction House, wo Spieler Items kaufen und verkaufen.</p></article>
+    <article class="command-card reveal"><code>/shop</code><p>Öffnet den Server-Shop mit mehreren Kategorien.</p></article>
+    <article class="command-card reveal"><code>/spawn</code><p>Bringt dich zurück zum Spawn und zu wichtigen Bereichen.</p></article>
+  </div>
+</section>
+
+<section class="section" id="shops">
+  <div class="section-head reveal">
+    <p class="eyebrow">// SHOPS & KITS</p>
+    <h2 class="section-title">Kaufen, verkaufen und stärker werden.</h2>
+  </div>
+
+  <div class="shop-grid">
+    <article class="shop-card reveal">
+      <img src="assets/media/auction.png" alt="Auction House Screenshot">
+      <div>
+        <h3>Auction House</h3>
+        <p>Mit <strong>/ah</strong> öffnest du die Auktionen. Dort kannst du Items von anderen Spielern kaufen oder eigene Sachen anbieten.</p>
+      </div>
+    </article>
+    <article class="shop-card reveal">
+      <img src="assets/media/shop.png" alt="Shop Screenshot">
+      <div>
+        <h3>Server-Shop</h3>
+        <p>Mit <strong>/shop</strong> findest du Endshop, Nethershop, PvP-Shop, Food-Shop, Farmshop und weitere Kategorien.</p>
+      </div>
+    </article>
+  </div>
+
+  <div class="kit-grid">
+    <article class="kit-card reveal">
+      <img src="assets/media/kit-start.png" alt="Kit Start Screenshot">
+      <h3>Kit Start</h3>
+      <p>Start-Kit für den Anfang. Inhalt: <strong>/kit start</strong>.</p>
+    </article>
+    <article class="kit-card reveal">
+      <img src="assets/media/kit-extra.png" alt="Kit Extra Screenshot">
+      <h3>Kit Extra</h3>
+      <p>Mehr Items für Spieler, die schneller weiterkommen wollen. Inhalt: <strong>/kit extra</strong>.</p>
+    </article>
+    <article class="kit-card reveal">
+      <img src="assets/media/kit-aura.png" alt="Kit Aura Screenshot">
+      <h3>Kit Aura</h3>
+      <p>Das starke Aura-Kit für den großen Grind. Inhalt: <strong>/kit aura</strong>.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section worlds-section" id="worlds">
+  <div class="section-head reveal">
+    <p class="eyebrow">// WELTEN-TUTORIAL</p>
+    <h2 class="section-title">Overworld, Nether und End.</h2>
+  </div>
+
+  <div class="world-path reveal">
+    <article>
+      <span>01</span>
+      <h3>Overworld</h3>
+      <p>Hier startest du, baust deine Base, farmst Ressourcen und setzt dein Home.</p>
+    </article>
+    <article>
+      <span>02</span>
+      <h3>Nether</h3>
+      <p>Gehe über ein Netherportal in den Nether. Nimm gute Rüstung, Essen und Blöcke mit.</p>
+    </article>
+    <article>
+      <span>03</span>
+      <h3>End</h3>
+      <p>Nutze den End-Zugang am Spawn oder folge den Server-Hinweisen. Dort findest du End-Ressourcen und stärkere Herausforderungen.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section join-section" id="join">
+  <div class="section-head reveal">
+    <p class="eyebrow">// IN 3 SCHRITTEN DABEI</p>
+    <h2 class="section-title">So startest du.</h2>
+  </div>
+
+  <div class="steps">
+    <div class="step reveal">
+      <span class="step-num">01</span>
+      <h3>Minecraft öffnen</h3>
+      <p>Starte Minecraft: Java Edition mit Version 1.21.8 oder neuer.</p>
+    </div>
+    <div class="step reveal">
+      <span class="step-num">02</span>
+      <h3>Server-IP eingeben</h3>
+      <p>Füge unter Multiplayer die Server-Adresse hinzu.</p>
+      <button class="ip-field" id="joinIpBtn" type="button">
+        <span>aurasmp.de:25570</span>
+        <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="step reveal">
+      <span class="step-num">03</span>
+      <h3>Losspielen</h3>
+      <p>Nutze /spawn, /shop, /ah und /home, um direkt loszulegen.</p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="community">
+  <div class="cta-glow"></div>
+  <div class="cta-content reveal">
+    <p class="eyebrow">// WERDE TEIL VON AURA</p>
+    <h2 class="cta-title">Folge AuraSMP und komm auf den Server.</h2>
+    <p class="cta-sub">Auf TikTok findest du Clips und Updates. Support und Community laufen über Discord.</p>
+    <div class="hero-actions">
+      <a href="https://www.tiktok.com/@aurasmp.de" target="_blank" rel="noopener" class="btn btn-primary btn-lg">TikTok @aurasmp.de</a>
+      <a href="https://discord.gg/CRdpFHSmQ" target="_blank" rel="noopener" class="btn btn-ghost btn-lg">Discord beitreten</a>
+      <button class="btn btn-ghost btn-lg" id="ctaIpBtn" type="button">Server-IP kopieren</button>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="brand-mark">◆</span>
+      <span class="brand-name">Aura<span class="brand-accent">SMP</span></span>
+      <p>Minecraft Java Survival-Server. Nicht verbunden mit Mojang oder Microsoft.</p>
+    </div>
+
+    <div class="footer-cols">
+      <div class="footer-col">
+        <h4>Server</h4>
+        <a href="#features">Infos</a>
+        <a href="#commands">Befehle</a>
+        <a href="#shops">Shops</a>
+        <a href="#join">Beitreten</a>
+      </div>
+      <div class="footer-col">
+        <h4>Community</h4>
+        <a href="https://www.tiktok.com/@aurasmp.de" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://discord.gg/CRdpFHSmQ" target="_blank" rel="noopener">Discord</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 AuraSMP. Alle Rechte vorbehalten.</span>
+    <span class="footer-ip">aurasmp.de:25570</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast">Server-IP kopiert!</div>
+
+<div class="music-start" id="musicStart" role="button" tabindex="0" aria-label="Musik starten">
+  <img src="assets/media/music-cover.png" alt="">
+  <div>
+    <span>Musik</span>
+    <strong>Enter / Klick</strong>
+  </div>
+</div>
+
+<section class="music-player" id="musicPlayer" aria-label="Musik Player">
+  <img class="music-cover" id="musicCover" src="assets/media/music-cover.png" alt="">
+  <div class="music-info">
+    <span class="music-kicker">Hintergrundmusik</span>
+    <strong id="musicTitle">Minecraft</strong>
+    <input id="musicVolume" class="music-volume" type="range" min="0" max="100" value="35" aria-label="Lautstärke">
+  </div>
+  <div class="music-controls">
+    <button id="musicPlay" class="music-play" type="button" aria-label="Musik starten">▶</button>
+    <button id="musicMute" type="button" aria-label="Stumm schalten">Mute</button>
+  </div>
+</section>
+
+<script src="icon.js"></script>
+<script src="script.js"></script>
+<script src="musik.js"></script>
+</body>
+</html>
